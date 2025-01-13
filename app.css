@@ -8,5 +8,95 @@
 img{
     display:block;
     width:100%;
-    height:100%
+    height:100%;
+    object-fit: cover;
 }
+
+body{
+    position: relative;
+    background: rgb(3, 15, 31);
+    background-image: radial-gradient(
+        circle at top center,
+        rgb(24, 48, 107) 0%,
+        rgb(3,15,31) 76%
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*somthing here*/
+.slider{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.slide{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    aspect-ratio: 3/4; /* SEARCH THIS UP */
+    border-radius: 20px;
+    transition: all 0.8s;
+    pointer-events: none;
+    user-select: none;
+}
+
+.slide::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(3px);
+    border:1px solid rgba(224, 19, 19, 0.3);
+    border-radius: inherit;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.5 ease-in-out;
+}
+
+.slide img{
+    border-radius: inherit;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.slide p {
+    position: absolute;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transform: translateY(0);
+    z-index: 2;
+    opacity: 1;
+}
+
+.control-btn {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    aspect-ratio: 1/1;
+    font-size: 2.25rem;
+    color: #6cfa84;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: transparent;
+    background-image: radial-gradient(50% 115% at 50% -5%, 
+        rgba(255,255,255,0.11) 0%, transparent 100%);
+}
+
