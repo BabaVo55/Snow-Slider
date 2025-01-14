@@ -17,8 +17,8 @@ body{
     background: rgb(3, 15, 31);
     background-image: radial-gradient(
         circle at top center,
-        rgb(24, 48, 107) 0%,
-        rgb(3,15,31) 76%
+        rgb(66, 180, 193) 0%,
+        rgb(3, 3, 31) 76%
     );
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,6 +47,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     width: 320px;
     aspect-ratio: 3/4; /* SEARCH THIS UP */
     border-radius: 20px;

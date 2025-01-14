@@ -53,3 +53,19 @@ nextButton.addEventListener('click', () => {
 
 
 updateSlideTransforms()
+
+let scrollTimeout;
+
+function handleMousewheel(event){
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+        if (event.deltaY > 0) {
+            nextSlide();
+        } else {
+            prevSlide()
+        }
+    }, 100);
+}
+
+window.addEventListener('wheel', handleMousewheel);
