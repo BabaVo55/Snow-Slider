@@ -33,4 +33,23 @@ function updateSlideTransforms(){
     nextButton.style.opacity = nextButton.disabled ? "0.1" : "1"
 }
 
+function prevSlide(){
+    activeIndex = (activeIndex -1 +slides.length) % slides.length;
+    updateSlideTransforms()
+}
+
+function nextSlide(){
+    activeIndex = (activeIndex + 1) % slides.length;
+    updateSlideTransforms()
+}
+
+prevButton.addEventListener('click', () => {
+    prevSlide()
+})
+
+nextButton.addEventListener('click', () => {
+    nextSlide()
+})
+
+
 updateSlideTransforms()
