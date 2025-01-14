@@ -56,6 +56,10 @@ main{
     user-select: none;
 }
 
+.slide.active{
+    box-shadow: 10px 10px 50px 0 rgba(192, 39, 39, 0.6);
+}
+
 .slide::after{
     content: "";
     position: absolute;
@@ -67,9 +71,14 @@ main{
     border:1px solid rgba(222, 222, 222, 0.3);
     border-radius: inherit;
     z-index: 1;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.5 ease-in-out;
 }
+
+.slide.active::after{
+    opacity: 1;
+}
+
 
 .slide img{
     border-radius: inherit;
@@ -87,6 +96,22 @@ main{
     opacity: 1;
 }
 
+
+.slide.active p {
+    animation: pop-out 0.8s ease-in-out forwards;
+}
+
+@keyframes pop-out {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+}
 .control-btn {
     position: absolute;
     top: 50%;
@@ -107,9 +132,32 @@ main{
     border-radius: 50%;
     cursor: pointer;
     z-index: 3;
-    animation: change-color 2s ease-in-out, change0size 1.5s linear infinite;
+    animation: change-color 2s ease-in-out, change-size 1.5s linear infinite;
     will-change: transform;
 };
+
+@keyframes change-color {
+0%, 100%
+{
+    color: #6cfa84;
+}
+50% { 
+    color: #a9aabc;
+}
+
+}
+
+@keyframes change-size {
+    0%, 100%
+{
+    transform: translateY(-50%) scale(1);
+}
+50% { 
+
+    transform: translateY(-50%) scale(1.1);
+}
+
+}
 
 .control-btn:hover{
     background-color: rgba(255, 255, 255, 0.05);

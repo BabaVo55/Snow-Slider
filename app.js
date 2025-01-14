@@ -54,6 +54,7 @@ nextButton.addEventListener('click', () => {
 
 updateSlideTransforms()
 
+//Wheel scroll slide
 let scrollTimeout;
 
 function handleMousewheel(event){
@@ -69,3 +70,4 @@ function handleMousewheel(event){
 }
 
 window.addEventListener('wheel', handleMousewheel);
+
