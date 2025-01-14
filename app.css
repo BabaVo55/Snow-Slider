@@ -61,9 +61,9 @@ main{
     inset: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(86, 76, 76, 0.3);
     -webkit-backdrop-filter: blur(3px);
-    border:1px solid rgba(224, 19, 19, 0.3);
+    border:1px solid rgba(222, 222, 222, 0.3);
     border-radius: inherit;
     z-index: 1;
     opacity: 1;
@@ -98,5 +98,88 @@ main{
     background-color: transparent;
     background-image: radial-gradient(50% 115% at 50% -5%, 
         rgba(255,255,255,0.11) 0%, transparent 100%);
+        box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.15),
+        inset 0 5px 10px 0 rgba(255, 255, 255, 0.1),
+        inset 0 2px 5px0 rgba(255, 255, 255, 0.4)
+        inset 0 3px 20px 0 rgba(0, 0, 0, 0.25);
+    border:0;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3;
+    animation: change-color 2s ease-in-out, change0size 1.5s linear infinite;
+    will-change: transform;
+};
+
+.control-btn:hover{
+    background-color: rgba(255, 255, 255, 0.05);
+    animation: none;
 }
 
+.control-btn.prev {
+    left: 25%;
+    transform: rotate(0deg) translateY(-50%) scale(1);
+}
+.control-btn.next {
+    right: 25%;
+    transform: rotate(0deg) translateY(-50%) scale(1);
+}
+
+.control-btn.prev:not([disabled]):hover{
+    transform: rotate(-15deg) translateY(-50%) scale(1.2);
+}
+.control-btn.next:not([disabled]):hover{
+    transform: rotate(15deg) translateY(-50%) scale(1.2);
+}
+
+
+.control-btn.prev:is([disabeld]),
+.control-btn.prev:is([disabeld]) {
+    animation: none;
+}
+
+@media (max-width: 900px){
+    .slide p {
+        font-size: 1.5rem;
+    }
+
+    .control-btn.prev {
+        left: 15%
+    }
+
+    .control-btn.next{
+        right: 15%
+    }
+}
+
+@media (max-width: 700px){
+    .slide p {
+        font-size: 1.25rem;
+    }
+
+    .control-btn {
+         width: 40px;
+         font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 560px){
+    .slide {
+        width: 220px;
+    }
+
+    .slide p {
+        font-size: 1.1rem;
+    }
+
+    .control-btn {
+        font-size: 1.5rem;
+    }
+
+    .control-btn.prev{ 
+        left: 5%;
+    }
+
+    .control-btn.next{
+        right: 5%;
+    }
+}
