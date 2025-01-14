@@ -26,8 +26,8 @@ function updateSlideTransforms(){
             slide.classList.add("active")
         }
     })
-
-    prevButton.disabled = activeIndex === 0;
+    // specific comparitor logic here - needs further testing and further investigation **************************
+    prevButton.disabled = activeIndex === 0; 
     nextButton.disabled = activeIndex === slides.length - 1;
     prevButton.style.opacity = prevButton.disabled ? "0.1" : "1"
     nextButton.style.opacity = nextButton.disabled ? "0.1" : "1"
